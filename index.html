@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>HydraPet — HYDRAPETAPP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>" />
+</head>
+<body>
+  <div class="stage">
+    <div class="phone">
+      <div class="notch" aria-hidden="true"><span></span></div>
+      <div class="app">
+        <header class="top">
+          <button class="iconbtn" id="btnMenu" aria-label="Menú"><img src="assets/ico-menu.png?v=8" alt="" /></button>
+          <div class="logo">
+            <img src="assets/logo.png?v=8" class="logo-img" alt="HydraPet" />
+            <strong>H Y D R A P E T</strong>
+          </div>
+          <button class="iconbtn avatar" id="btnProfile" aria-label="Perfil"><img src="assets/ico-perfil.png?v=8" alt="" /></button>
+        </header>
+
+        <div class="drawer" id="drawer" hidden>
+          <button data-go="inicio"><img src="assets/ico-inicio.png?v=8" alt="" /><span>Inicio</span></button>
+          <button data-go="stats"><img src="assets/ico-stats.png?v=8" alt="" /><span>Estadísticas</span></button>
+          <button data-go="cal"><img src="assets/ico-cal.png?v=8" alt="" /><span>Calendario y horarios</span></button>
+          <button data-go="ajustes"><img src="assets/ico-ajustes.png?v=8" alt="" /><span>Ajustes</span></button>
+          <hr />
+          <button id="btnSeedDemo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg><span>Cargar datos de ejemplo</span></button>
+          <button id="btnWipe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 4h4M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg><span>Borrar mis datos</span></button>
+        </div>
+
+        <main class="scroll">
+          <!-- ============ INICIO (Pantalla Principal Hydrapet · nodo 4:3) ============ -->
+          <section class="tab active" id="tab-inicio">
+            <button class="device" id="deviceCard" type="button">
+              <span class="device-ico">
+                <img src="assets/llavero.png?v=8" alt="Llavero" />
+              </span>
+              <span class="device-txt">
+                <strong>Dispositivo <em id="deviceState">conectado</em></strong>
+                <small>Batería <span class="batt"><i style="width:82%"></i></span> <b id="battPct">82%</b></small>
+              </span>
+              <span class="chev">›</span>
+            </button>
+
+            <div class="hero">
+              <div class="ring-wrap">
+                <svg class="ring" viewBox="0 0 200 200">
+                  <circle cx="100" cy="100" r="82" class="track"/>
+                  <circle cx="100" cy="100" r="82" class="fill" id="ringFill"/>
+                </svg>
+                <div class="mascot">
+                  <img src="assets/mascota.png?v=8" alt="Mascota HydraPet" />
+                </div>
+              </div>
+              <div class="hero-num">
+                <strong id="pctBig">0%</strong>
+                <small><b id="todayMl">0 ml</b><br/>de <span id="goalMlHero">2000</span> ml</small>
+              </div>
+            </div>
+
+            <div class="card meta-card">
+              <div><small>Meta diaria</small><strong id="goalBig">2000 ml</strong></div>
+              <button class="pill" id="btnEditGoal">✎ Editar meta</button>
+            </div>
+
+            <div class="sec-head">
+              <h2>Recordatorios de Hoy</h2>
+              <button class="link" id="btnVerTodos">Ver todos ›</button>
+            </div>
+            <ul class="reminders" id="remList"></ul>
+
+            <div class="quick">
+              <button class="qbtn" data-quick="200">+200 ml</button>
+              <button class="qbtn" data-quick="250">+250 ml</button>
+              <button class="qbtn primary" id="btnOpenIntake">+ Registrar</button>
+            </div>
+          </section>
+
+          <!-- ============ ESTADÍSTICAS (nodo 21:143) ============ -->
+          <section class="tab" id="tab-stats">
+            <div class="segment" role="tablist">
+              <button class="seg" data-range="dia">Día</button>
+              <button class="seg active" data-range="semana">Semana</button>
+              <button class="seg" data-range="mes">Mes</button>
+            </div>
+
+            <div class="hero mini">
+              <div class="ring-wrap small">
+                <svg class="ring" viewBox="0 0 200 200">
+                  <circle cx="100" cy="100" r="82" class="track"/>
+                  <circle cx="100" cy="100" r="82" class="fill" id="ringFill2"/>
+                </svg>
+                <div class="mascot">
+                  <img src="assets/mascota.png?v=8" alt="Mascota HydraPet" />
+                </div>
+              </div>
+              <div class="hero-num">
+                <strong id="pctBig2">0%</strong>
+                <small><b id="todayMl2">0 ml</b><br/>de <span id="goalMlHero2">2000</span> ml</small>
+              </div>
+            </div>
+
+            <div class="card meta-card">
+              <div><small>Meta diaria</small><strong id="goalBig2">2000 ml</strong></div>
+              <div class="consumed"><img src="assets/ico-vaso.png?v=8" alt="" />Consumido hoy<br/><strong id="consumedToday">0 ml</strong></div>
+            </div>
+
+            <div class="card chart-card">
+              <div class="sec-head"><h2 class="blue">Consumo de agua</h2><span class="tag">Meta</span></div>
+              <div class="chart" id="chart"></div>
+              <div class="axis" id="chartAxis"></div>
+              <label class="slider-lab">Ajustar meta: <b id="sliderVal">2000 ml</b></label>
+              <input type="range" id="goalSlider" min="500" max="4000" step="100" value="2000" />
+            </div>
+
+            <div class="kpis">
+              <div class="card kpi"><span class="kdrop">💧</span><div><small>Recordatorios cumplidos</small><strong id="kpiDone">0%</strong></div></div>
+              <div class="card kpi"><span class="kdrop fire">💧</span><div><small>Racha actual</small><strong id="kpiStreak">0 días</strong></div></div>
+            </div>
+          </section>
+
+          <!-- ============ CALENDARIO (Component 5 · nodo 38:261) ============ -->
+          <section class="tab" id="tab-cal">
+            <h1 class="page-title">Calendario</h1>
+            <p class="page-sub">Tus recuerdos de hidratación</p>
+            <div class="freq-row">
+              <div class="freq-mascot">
+                <img src="assets/mascota.png?v=8" alt="Mascota HydraPet" />
+                <span class="clock-badge">◷</span>
+              </div>
+              <div class="freq-card">
+                <small>Frecuencia</small>
+                <button class="freq-select" id="freqSelect">Cada 2 horas ▾</button>
+                <div class="freq-menu" id="freqMenu" hidden>
+                  <label><input type="radio" name="freq" value="30" /> Cada 30 min</label>
+                  <label><input type="radio" name="freq" value="60" /> Cada 1 hora</label>
+                  <label><input type="radio" name="freq" value="120" checked /> Cada 2 horas</label>
+                  <label><input type="radio" name="freq" value="300" /> Cada 5 horas</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="card month-card">
+              <h2 id="calTitle">Octubre</h2>
+              <div class="cal-head"><span>Lunes</span><span>Martes</span><span>Miércoles</span><span>Jueves</span><span>Viernes</span><span>Sábado</span><span>Domingo</span></div>
+              <div class="cal-grid" id="calGrid"></div>
+              <div class="cal-nav"><button class="iconbtn" id="calPrev">‹</button><button class="iconbtn" id="calNext">›</button></div>
+            </div>
+
+            <div class="legend">
+              <span><img src="assets/leyenda-completado.png?v=8" alt="" /><small>Día completado</small></span>
+              <span><img src="assets/leyenda-continuar.png?v=8" alt="" /><small>A continuar!</small></span>
+              <span><img src="assets/leyenda-nocompletado.png?v=8" alt="" /><small>No completado</small></span>
+            </div>
+
+            <div class="card horario-card">
+              <span class="hclock">◷</span>
+              <div><strong>Horario activo</strong><br/><b id="activeRange">De 8:00 a 20:00</b></div>
+              <button class="chev" id="btnEditRange">›</button>
+            </div>
+            <form class="card inline-form" id="formRange" hidden>
+              <label>Inicio<input type="time" id="rangeStart" value="08:00" /></label>
+              <label>Fin<input type="time" id="rangeEnd" value="20:00" /></label>
+              <button class="qbtn primary" type="submit">Aplicar</button>
+            </form>
+
+            <div class="sec-head"><h2>Mis horarios</h2><button class="link" id="btnSeedSched">Cargar ejemplo</button></div>
+            <form class="card inline-form" id="formSched">
+              <input type="time" id="schedTime" required />
+              <input type="text" id="schedLabel" maxlength="40" placeholder="Etiqueta" required />
+              <button class="qbtn primary" type="submit">＋</button>
+            </form>
+            <ul class="reminders" id="schedList"></ul>
+            <div class="card"><h2 id="dayTitle">Detalle del día</h2><p class="muted" id="daySub">Toca un día.</p><ul class="reminders" id="dayList"></ul></div>
+          </section>
+
+          <!-- ============ AJUSTES ============ -->
+          <section class="tab" id="tab-ajustes">
+            <h2>Ajustes</h2>
+            <div class="card">
+              <label>Nombre<input type="text" id="userName" maxlength="30" placeholder="Tu nombre" /></label>
+              <label>Meta diaria (ml)<input type="number" id="goalInput" min="500" max="6000" step="100" /></label>
+              <label class="check"><input type="checkbox" id="notifToggle" checked /> Notificaciones del navegador</label>
+              <div class="row"><button class="qbtn primary" id="btnSaveSettings">Guardar</button>
+              <button class="qbtn" id="btnExport">Exportar CSV</button></div>
+            </div>
+            <div class="card">
+              <h2>Llavero</h2>
+              <p class="muted">Gota física con botón y LED. El botón registra 250 ml y el LED refleja tu % del día.</p>
+              <div class="row"><button class="qbtn primary" id="btnDeviceAdd">🔵 Botón +250 ml</button>
+              <button class="qbtn" id="btnSync">Sincronizar</button></div>
+            </div>
+          </section>
+        </main>
+
+        <button class="fab" id="fabAdd" aria-label="Registrar toma">＋</button>
+
+        <nav class="tabbar">
+          <button type="button" class="tabbtn active" data-go="inicio">
+            <img src="assets/ico-inicio.png?v=8" alt="" />
+            <small>Inicio</small></button>
+          <button type="button" class="tabbtn" data-go="stats">
+            <img src="assets/ico-stats.png?v=8" alt="" />
+            <small>Estadísticas</small></button>
+          <button type="button" class="tabbtn" data-go="cal">
+            <img src="assets/ico-cal.png?v=8" alt="" />
+            <small>Calendario</small></button>
+          <button type="button" class="tabbtn" data-go="ajustes">
+            <img src="assets/ico-ajustes.png?v=8" alt="" />
+            <small>Ajustes</small></button>
+        </nav>
+        <div class="homebar" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal toma -->
+  <div class="overlay" id="ovIntake" hidden>
+    <form class="sheet" id="formIntake">
+      <h2 id="intakeTitle">Nueva toma 🥤</h2>
+      <input type="hidden" id="intakeId" />
+      <div class="row presets">
+        <button type="button" data-preset="200">200</button>
+        <button type="button" data-preset="250">250</button>
+        <button type="button" data-preset="500">500</button>
+      </div>
+      <label>Cantidad (ml)<input type="number" id="intakeMl" min="30" max="3000" step="50" value="250" required /></label>
+      <label>Fecha y hora<input type="datetime-local" id="intakeTs" required /></label>
+      <label>Nota<input type="text" id="intakeNote" maxlength="60" placeholder="Ej. después de correr" /></label>
+      <div class="row"><button class="qbtn primary" type="submit">Guardar</button>
+      <button class="qbtn" type="button" id="btnCloseIntake">Cerrar</button></div>
+    </form>
+  </div>
+
+  <!-- Modal meta -->
+  <div class="overlay" id="ovGoal" hidden>
+    <form class="sheet" id="formGoal">
+      <h2>Editar meta 🎯</h2>
+      <label>Meta diaria (ml)<input type="number" id="goalModalInput" min="500" max="6000" step="100" required /></label>
+      <div class="row"><button class="qbtn primary" type="submit">Guardar</button>
+      <button class="qbtn" type="button" id="btnCloseGoal">Cerrar</button></div>
+    </form>
+  </div>
+
+  <div class="toasts" id="toasts"></div>
+  <script src="app.js?v=8"></script>
+</body>
+</html>

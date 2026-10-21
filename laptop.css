@@ -1,0 +1,33 @@
+/* HydraPet · versión laptop (pantalla ancha, tarjetas en columnas) */
+.stage{padding:28px 20px}
+.phone{width:min(1180px,100%);background:transparent;box-shadow:none;padding:0;border-radius:0}
+.notch{display:none}
+.app{border-radius:28px;height:auto;min-height:calc(100vh - 56px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.scroll{max-width:1060px;margin:0 auto;width:100%;padding:10px 28px 130px;overflow:visible}
+.top{max-width:1060px;margin:0 auto;width:100%}
+/* inicio en 2 columnas */
+#tab-inicio .hero{float:left;width:46%;margin-right:4%}
+#tab-inicio .meta-card{float:right;width:50%}
+#tab-inicio .sec-head{clear:both}
+#tab-inicio .reminders{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#tab-inicio .quick{max-width:560px}
+/* stats en columnas */
+#tab-stats .hero.mini{float:left;width:38%}
+#tab-stats .meta-card{float:right;width:58%}
+#tab-stats .chart-card{clear:both}
+#tab-stats .kpis{grid-template-columns:repeat(4,1fr)}
+/* calendario más aireado */
+#tab-cal .freq-row{max-width:560px}
+#tab-cal .month-card{max-width:640px;margin-left:auto;margin-right:auto}
+#tab-cal .legend{max-width:560px;margin-left:auto;margin-right:auto}
+#tab-cal .horario-card,#tab-cal .inline-form{max-width:640px;margin-left:auto;margin-right:auto}
+#tab-cal .reminders{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* tabbar centrada */
+.tabbar{left:50%;transform:translateX(-50%);width:min(1180px,100%);border-radius:22px 22px 0 0}
+.homebar{display:none}
+@media(max-width:760px){ /* laptop pequeña / ventana angosta: vuelve a 1 columna */
+  #tab-inicio .hero,#tab-inicio .meta-card,
+  #tab-stats .hero.mini,#tab-stats .meta-card{float:none;width:auto;margin-right:0}
+  #tab-inicio .reminders,#tab-cal .reminders{grid-template-columns:1fr}
+  #tab-stats .kpis{grid-template-columns:1fr 1fr}
+}

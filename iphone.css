@@ -1,0 +1,21 @@
+/* HydraPet · versión iPhone Air (420×912 pt, Dynamic Island, 100dvh) */
+html,body{height:100%}
+body{background:#fff;overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
+.stage{padding:0;min-height:100dvh;align-items:stretch}
+.phone{width:100%;max-width:480px;margin:0 auto;border-radius:0;padding:0;box-shadow:none;background:#fff}
+.app{border-radius:0;height:100dvh;min-height:100dvh;max-height:100dvh}
+@supports not (height:100dvh){.app{height:100vh}}
+.notch{display:none}
+.top{padding-top:calc(10px + env(safe-area-inset-top))}
+.scroll{padding-bottom:calc(132px + env(safe-area-inset-bottom))}
+.tabbar{padding-bottom:calc(6px + env(safe-area-inset-bottom))}
+.homebar{display:none}
+.fab{bottom:calc(104px + env(safe-area-inset-bottom))}
+.toasts{bottom:calc(18px + env(safe-area-inset-bottom))}
+.drawer{top:calc(64px + env(safe-area-inset-top))}
+input,select,textarea{font-size:16px} /* evita zoom en iOS */
+@media(min-width:481px){ /* iPhone Air en horizontal o pantallas mayores */
+  body{background:#0f1722}
+  .phone{border-radius:28px}
+  .app{border-radius:28px;height:94dvh;min-height:94dvh}
+}
